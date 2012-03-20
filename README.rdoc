@@ -1,0 +1,2 @@
+# LIFTY
+# Simple Rails app for keeping track of exercises throughout the week.
