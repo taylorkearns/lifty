@@ -1,5 +1,6 @@
 Lifty::Application.routes.draw do
-  root :to => 'exercises#show'
+  root :to => 'exercises#index'
+  match 'exercises/:id' => 'exercises#show'
 	 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,44 @@
+<div id="container">
+	<h1><%= @exercise.name %></h1>
+	<%= form_for @exercise, :url => { :action => "edit" } do |exercise_form| %>
+		<section>
+			<p>Weight each side</p>
+			<div class="value_field">
+				<%= exercise_form.number_field :weight_each_side, :class => "value" %>
+				<%= button_tag "Up", :type => "button", :class => "up" %>
+				<%= button_tag "Down", :type => "button", :class => "down" %>
+			</div>
+		</section>
+		<div id="more_options">
+			<section>
+				<p>Bar weight</p>
+				<div class="value_field">
+					<%= exercise_form.number_field :bar_weight, :class => "value" %>
+					<%= button_tag "Up", :type => "button", :class => "up" %>
+					<%= button_tag "Down", :type => "button", :class => "down" %>
+				</div>
+			</section>
+			<section>
+				<p>Units</p>
+				<div class="value_field">
+					<%= exercise_form.select(:weight_units, options_for_select(["lbs", "kg"])) %>
+				</div>
+			</section>
+		</div>
+		<section>
+			<p>Total weight</p>
+			<div class="value_field">
+				<%= exercise_form.number_field :total_weight, :class => "value", :disabled => true %>
+			</div>
+		</section>
+		<section>
+			<p>Reps</p>
+			<div class="value_field">
+				<%= exercise_form.number_field :reps, :class => "value" %>
+				<%= button_tag "Up", :type => "button", :class => "up" %>
+				<%= button_tag "Down", :type => "button", :class => "down" %>
+			</div>
+		</section>
+		<%= exercise_form.submit "Save" %>
+	<% end %>
+</div>

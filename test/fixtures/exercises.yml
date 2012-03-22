@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  weight_each_side: 1.5
+  bar_weight: 1.5
+  total_weight: 1.5
+  weight_units: MyString
+  type_of_weight: MyString
+  reps: MyString
+
+two:
+  name: MyString
+  weight_each_side: 1.5
+  bar_weight: 1.5
+  total_weight: 1.5
+  weight_units: MyString
+  type_of_weight: MyString
+  reps: MyString
