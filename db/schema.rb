@@ -11,15 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321204905) do
+ActiveRecord::Schema.define(:version => 20120322210553) do
 
   create_table "exercises", :force => true do |t|
     t.string   "name"
-    t.float    "weight_each_side"
-    t.float    "bar_weight"
-    t.float    "total_weight"
+    t.integer  "weight_each_side"
+    t.integer  "bar_weight"
+    t.integer  "total_weight"
     t.string   "weight_units"
-    t.string   "type_of_weight"
     t.string   "reps"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
