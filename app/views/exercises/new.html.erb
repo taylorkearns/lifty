@@ -4,7 +4,7 @@
 	<% end %>
 	<%= form_for @exercise do |exercise_form| %>
 		<div class="value_field">
-			<h1><%= exercise_form.text_field :name %></h1>
+			<h1><%= exercise_form.text_field :name, { :placeholder => "New Exercise" } %></h1>
 		</div>
 		<section>
 			<p>Weight each side</p>
@@ -29,18 +29,16 @@
 		<section>
 			<p>Total weight</p>
 			<div class="value_field">
-				<%= exercise_form.number_field :total_weight, :class => "value", :disabled => true %>
+				<%= exercise_form.number_field :total_weight, :class => "value" %>
 			</div>
 		</section>
 		<section>
 			<p>Reps</p>
 			<div class="value_field">
 				<%= exercise_form.number_field :reps, :class => "value" %>
-				<%= button_tag "Up", :type => "button", :class => "up" %>
-				<%= button_tag "Down", :type => "button", :class => "down" %>
 			</div>
 		</section>
 		<%= exercise_form.submit "Save" %>
 	<% end %>
+	<%= link_to "Cancel", exercises_path %>
 </div>
-<%= debug(params) %>

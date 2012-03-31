@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322210553) do
+ActiveRecord::Schema.define(:version => 20120331195919) do
 
   create_table "exercises", :force => true do |t|
     t.string   "name"
-    t.integer  "weight_each_side"
-    t.integer  "bar_weight"
-    t.integer  "total_weight"
+    t.integer  "weight_each_side", :default => 0
+    t.integer  "bar_weight",       :default => 0
+    t.integer  "total_weight",     :default => 0
     t.string   "weight_units"
-    t.string   "reps"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "reps",             :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
 end

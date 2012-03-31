@@ -1,6 +1,16 @@
-<% if flash[:notice] %>
-	<p class="notice"><%= flash[:notice] %></p>
-<% end %>
-
-<%= link_to 'Load', 'exercises/ajax_content', { :method => 'POST', :remote => true } %>
-<div id="ajax_content_holder">Nothing here.</div>
+<div id="container">
+	<% if flash[:notice] %>
+		<p class="notice"><%= flash[:notice] %></p>
+	<% end %>
+	<h1>Exercises</h1>
+	<%= link_to "New", new_exercise_path %>
+	<% if @exercises.count != 0 %>
+		<ul>
+			<% @exercises.each do |exercise| %>
+				<li><%= link_to "#{ exercise.name }", exercise_path(exercise) %></li>
+			<% end %>
+		</ul>
+	<% else %>
+		<p>No exercises to display.</p>
+	<% end %>
+</div>
