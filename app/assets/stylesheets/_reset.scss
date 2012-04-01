@@ -9,4 +9,5 @@ a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background
 a:active, a:focus { outline: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 input, select { vertical-align: middle; }
-.hide-text { text-indent: 100%; white-space: nowrap; overflow: hidden; }
+input, text-area, select { -webkit-appearance: none; }
+.hide_text { text-indent: 200%; white-space: nowrap; overflow: hidden; }

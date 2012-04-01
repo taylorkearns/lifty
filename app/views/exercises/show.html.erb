@@ -1,9 +1,9 @@
-<div id="container">
+<div id="container" class="show_exercise">
 	<% if flash[:notice] %>
 		<p class="notice"><%= flash[:notice] %></p>
 	<% end %>
 	<%= form_for @exercise, :remote => true do |exercise_form| %>
-		<div class="value_field">
+		<div class="value_field header">
 			<h1><%= exercise_form.text_field :name %></h1>
 		</div>
 		<section>
@@ -14,22 +14,6 @@
 				<%= button_tag "Down", :type => "button", :class => "down" %>
 			</div>
 		</section>
-		<div id="more_options">
-			<section>
-				<p>Bar weight</p>
-				<div class="value_field">
-					<%= exercise_form.number_field :bar_weight, :class => "value" %>
-					<%= button_tag "Up", :type => "button", :class => "up" %>
-					<%= button_tag "Down", :type => "button", :class => "down" %>
-				</div>
-			</section>
-			<section>
-				<p>Units</p>
-				<div class="value_field">
-					<%= exercise_form.select(:weight_units, options_for_select(["lbs", "kg"], @exercise['weight_units'])) %>
-				</div>
-			</section>
-		</div>
 		<section>
 			<p>Total weight</p>
 			<div class="value_field">
@@ -39,16 +23,35 @@
 			</div>
 		</section>
 		<section>
-			<p>Reps</p>
+			<p class="single_line">Reps</p>
 			<div class="value_field">
 				<%= exercise_form.number_field :reps, :class => "value" %>
 				<%= button_tag "Up", :type => "button", :class => "up" %>
 				<%= button_tag "Down", :type => "button", :class => "down" %>
 			</div>
 		</section>
-		<%= exercise_form.submit "Save" %>
+		<p class="more"><a href="">More</a></p>
+		<div id="more_options">
+			<section>
+				<p class="single_line">Bar weight</p>
+				<div class="value_field">
+					<%= exercise_form.number_field :bar_weight, :class => "value" %>
+					<%= button_tag "Up", :type => "button", :class => "up" %>
+					<%= button_tag "Down", :type => "button", :class => "down" %>
+				</div>
+			</section>
+			<section>
+				<p class="single_line">Units</p>
+				<div class="value_field">
+					<%= exercise_form.select(:weight_units, options_for_select(["lbs", "kg"], @exercise['weight_units'])) %>
+				</div>
+			</section>
+		</div>
+		<div id="action_buttons">
+			<%= link_to "Delete", @exercise, { :method => :delete, :confirm => "Delete exercise?", :id => "delete" } %>
+			<%= link_to "Home", exercises_path, { :id => "home" } %>
+			<%= link_to "New", new_exercise_path, { :id => "new" } %>
+			<%= exercise_form.submit "Save" %>
+		</div>
 	<% end %>
-	<%= link_to "Delete", @exercise, { :method => :delete, :confirm => "Delete exercise?" } %>
-	<%= link_to "New", new_exercise_path %>
-	<%= link_to "All exercises", exercises_path %>
 </div>

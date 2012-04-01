@@ -1,3 +1,25 @@
+/* ================================================== */
+/* FONTS
+/* ================================================== */
+@font-face {
+    font-family: 'RokkittRegular';
+    src: font-url('/fonts/Rokkitt-webfont.eot');
+    src: font-url('/fonts/Rokkitt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('/fonts/Rokkitt-webfont.woff') format('woff'),
+         font-url('/fonts/Rokkitt-webfont.ttf') format('truetype'),
+         font-url('/fonts/Rokkitt-webfont.svg#RokkittRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ================================================== */
+/* MAIN
+/* ================================================== */
+$first_font: RokkittRegular, "Helvetica Neue", Arial, Helvetica;
+$first_color: #b5e0ed;
+$second_color: #fff;
+$third_color: #79c6de;
+
 input.invalid {
 	border: 2px solid red;
 }

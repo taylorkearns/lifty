@@ -1,0 +1,132 @@
+input, select {
+	border: none;
+	color: $second_color;
+	font-family: $first_font;
+}
+
+body {
+	font-family: $first_font;
+	background: $first_color;
+	color: $second_color;
+}
+
+#container {
+	width: 100%;
+}
+
+.header {
+	width: 90%;
+	height: 62px;
+	padding: 5px 5%;
+	border-bottom: 1px solid #5cadc6;
+	background: $third_color;
+}
+
+h1 {
+	input {
+		width: 100%;
+		height: 62px;
+		padding: 0;
+		background: $third_color;
+		font-size: 24px;
+	}
+}
+
+#container.show_exercise {
+	p.more {
+		display: none;
+		position: absolute;
+	}
+
+	section {
+		position: relative;
+		width: 90%;
+		height: 100px;
+		padding: 5px 5%;
+		background: image_url("two-tone-rule-short.png") right bottom no-repeat;
+		
+		p {
+			float: left;
+			width: 50%;
+			margin-top: 21px;
+			font-size: 24px;
+			text-transform: uppercase;
+			
+			&.single_line {
+				margin-top: 37px;
+			}
+		}
+		
+		.value_field {
+			position: absolute;
+			right: 0;
+			top: 10px;
+			width: 50%;
+			
+			input, select {
+				position: absolute;
+				right: 75px;
+				top: 18px;
+				width: 90px;
+				height: 65px;
+				padding: 0;
+				color: $second_color;
+				background: $first_color;
+				font-size: 60px;
+				text-align: right;
+			}
+			
+			select {
+				top: 12px;
+				right: 55px;
+			}
+			
+			button {
+				@extend .hide_text;
+				position: absolute;
+				right: 20px;
+				width: 38px;
+				height: 38px;
+				border: none;
+				background: image_url("icons.png") no-repeat;
+				
+				&.up {
+					background-position: left top;
+					top: 0;
+				}
+				
+				&.down {
+					background-position: -49px top;
+					top: 50px;
+				}
+			}
+		}
+	}
+	
+	#action_buttons {
+		width: 100%;
+		
+		a, input[type="submit"] {
+			display: block;
+			width: 40px;
+			height: 15px;
+			padding-top: 40px;
+			color: $second_color;
+			background: image_url("icons.png") no-repeat;
+			font-size: 16px;
+			text-transform: uppercase;
+		}
+		
+		#delete {
+			background-position: left 40px;
+		}
+		
+		#home {
+			background-position: -66px bottom;
+		}
+		
+		#new {
+			background-position: -140px bottom;
+		}
+	}
+}
