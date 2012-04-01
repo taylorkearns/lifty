@@ -20,7 +20,7 @@ var core = (function(){
 		},
 		
 		// Capitalize the first letter of each word in a string
-		cap_first: function(str){
+		capFirst: function(str){
 			var conjunctions = ['or', 'of', 'and'];
 			str = $.trim(str);
 			var words = str.split(' ');
@@ -42,11 +42,11 @@ var core = (function(){
 $(document).ready(function(){
 	/* ========== VIEW ALL EXERCISES ========== */
 	$.each($('ul.exercises > li > a'), function(i, elem){
-		$(elem).text(core.cap_first($(elem).text()));
+		$(elem).text(core.capFirst($(elem).text()));
 	});
 
 	/* ========== VIEW/EDIT EXERCISE ========== */
-	$('#exercise_name').val(core.cap_first($('#exercise_name').val()));
+	$('#exercise_name').val(core.capFirst($('#exercise_name').val()));
 	
 	// Plus and minus buttons
 	$('.value_field button').bind('click', function(){
