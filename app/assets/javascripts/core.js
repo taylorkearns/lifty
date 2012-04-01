@@ -2,14 +2,36 @@
 /* FUNCTIONS
 /* ================================================== */
 var core = (function(){
+	var capitalize = function(str){
+		str = str.toLowerCase();
+		var capitalized_first_letter = str.slice(0, 1).toUpperCase();
+		return str.replace(/^\w/, capitalized_first_letter);
+	};
+
 	return {
 		// Calculate total weight by doubling the weight on each side and adding bar weight
 		calculateTotalWeight: function(){
 			$('#exercise_total_weight').val($('#exercise_weight_each_side').val() * 2 + parseInt($('#exercise_bar_weight').val()));
 		},
 		
+		// Zero out the weight each side and bar weight when total weight is entered manually
 		clearAllButTotalWeight: function(){
 			$('#exercise_weight_each_side, #exercise_bar_weight').val('0');
+		},
+		
+		// Capitalize the first letter of each word in a string
+		cap_first: function(str){
+			var conjunctions = ['or', 'of', 'and'];
+			str = $.trim(str);
+			var words = str.split(' ');
+			var capitalized_words = [];
+			$.each(words, function(i, word){
+				if(conjunctions.indexOf(word) === -1){
+					word = capitalize(word);
+					capitalized_words.push(word); 
+				} 
+			});
+			return capitalized_words.join(' ');
 		}
 	};
 })();
@@ -18,6 +40,14 @@ var core = (function(){
 /* DOCUMENT.READY
 /* ================================================== */
 $(document).ready(function(){
+	/* ========== VIEW ALL EXERCISES ========== */
+	$.each($('ul.exercises > li > a'), function(i, elem){
+		$(elem).text(core.cap_first($(elem).text()));
+	});
+
+	/* ========== VIEW/EDIT EXERCISE ========== */
+	$('#exercise_name').val(core.cap_first($('#exercise_name').val()));
+	
 	// Plus and minus buttons
 	$('.value_field button').bind('click', function(){
 		var button = $(this);
@@ -37,7 +67,6 @@ $(document).ready(function(){
 		core.calculateTotalWeight();
 	});
 	
-	// Zero out the weight each side and bar weight when total weight is entered manually
 	$('#exercise_total_weight').bind('change', function(){
 		core.clearAllButTotalWeight();
 	});

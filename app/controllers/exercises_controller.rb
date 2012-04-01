@@ -9,12 +9,12 @@ class ExercisesController < ApplicationController
 	
 	def create
 		@exercise = Exercise.new(params[:exercise])
+		@exercise.name = params['exercise']['name'].downcase
+		@exercise.weight_each_side = params['exercise']['weight_each_side'].to_i
+		@exercise.bar_weight = params['exercise']['bar_weight'].to_i
+		@exercise.weight_units = params['exercise']['weight_units']
+		@exercise.reps = params['exercise']['reps'].to_i
 		if @exercise.save
-			@exercise.name = params['exercise']['name']
-			@exercise.weight_each_side = params['exercise']['weight_each_side'].to_i
-			@exercise.bar_weight = params['exercise']['bar_weight'].to_i
-			@exercise.weight_units = params['exercise']['weight_units']
-			@exercise.reps = params['exercise']['reps'].to_i
 			redirect_to exercise_path(@exercise)
 		else
 			flash[:notice] = "Unable to create exercise. Please make sure all fields are filled in."
@@ -28,7 +28,7 @@ class ExercisesController < ApplicationController
 	
 	def update
 		@exercise = Exercise.find(params[:id])
-		@exercise.name = params['exercise']['name']
+		@exercise.name = params['exercise']['name'].downcase
 		@exercise.weight_each_side = params['exercise']['weight_each_side'].to_i
 		@exercise.bar_weight = params['exercise']['bar_weight'].to_i
 		@exercise.total_weight = params['exercise']['total_weight'].to_i
