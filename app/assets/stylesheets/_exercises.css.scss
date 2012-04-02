@@ -104,29 +104,41 @@ h1 {
 	}
 	
 	#action_buttons {
+		float: left;
 		width: 100%;
+		margin: 20px 0;
 		
 		a, input[type="submit"] {
+			float: left;
 			display: block;
-			width: 40px;
+			width: 60px;
 			height: 15px;
 			padding-top: 40px;
+			margin-left: 15px;
 			color: $second_color;
 			background: image_url("icons.png") no-repeat;
 			font-size: 16px;
+			text-align: center;
 			text-transform: uppercase;
 		}
 		
 		#delete {
-			background-position: left 40px;
+			background-position: 10px -45px;
 		}
 		
 		#home {
-			background-position: -66px bottom;
+			background-position: -56px -45px;
 		}
 		
 		#new {
-			background-position: -140px bottom;
+			background-position: -127px -45px;
+		}
+		
+		input[type="submit"] {
+			float: right;
+			height: 55px;
+			margin-right: 20px;
+			background-position: -199px -45px;
 		}
 	}
 }
