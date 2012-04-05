@@ -17,21 +17,6 @@ var core = (function(){
 		// Zero out the weight each side and bar weight when total weight is entered manually
 		clearAllButTotalWeight: function(){
 			$('#exercise_weight_each_side, #exercise_bar_weight').val('0');
-		},
-		
-		// Capitalize the first letter of each word in a string
-		capFirst: function(str){
-			var conjunctions = ['or', 'of', 'and'];
-			str = $.trim(str);
-			var words = str.split(' ');
-			var capitalized_words = [];
-			$.each(words, function(i, word){
-				if(conjunctions.indexOf(word) === -1){
-					word = capitalize(word);
-					capitalized_words.push(word); 
-				} 
-			});
-			return capitalized_words.join(' ');
 		}
 	};
 })();

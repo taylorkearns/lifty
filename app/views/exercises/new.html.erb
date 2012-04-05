@@ -1,44 +1,57 @@
-<div id="container">
+<div id="container" class="new_exercise">
 	<% if flash[:notice] %>
 		<p class="notice"><%= flash[:notice] %></p>
 	<% end %>
 	<%= form_for @exercise do |exercise_form| %>
-		<div class="value_field">
-			<h1><%= exercise_form.text_field :name, { :placeholder => "New Exercise" } %></h1>
+		<div class="value_field header">
+			<h1><%= exercise_form.text_field :name, { :value => "[New Exercise]" } %></h1>
 		</div>
 		<section>
 			<p>Weight each side</p>
 			<div class="value_field">
 				<%= exercise_form.number_field :weight_each_side, :class => "value" %>
+				<%= button_tag "Up", :type => "button", :class => "up" %>
+				<%= button_tag "Down", :type => "button", :class => "down" %>
 			</div>
 		</section>
+		<section>
+			<p>Total weight</p>
+			<div class="value_field">
+				<%= exercise_form.number_field :total_weight, :class => "value" %>
+				<%= button_tag "Up", :type => "button", :class => "up" %>
+				<%= button_tag "Down", :type => "button", :class => "down" %>
+			</div>
+		</section>
+		<section>
+			<p class="single_line">Reps</p>
+			<div class="value_field">
+				<%= exercise_form.number_field :reps, :class => "value" %>
+				<%= button_tag "Up", :type => "button", :class => "up" %>
+				<%= button_tag "Down", :type => "button", :class => "down" %>
+			</div>
+		</section>
+		<p class="more"><a href="">More</a></p>
 		<div id="more_options">
 			<section>
-				<p>Bar weight</p>
+				<p class="single_line">Bar weight</p>
 				<div class="value_field">
 					<%= exercise_form.number_field :bar_weight, :class => "value" %>
+					<%= button_tag "Up", :type => "button", :class => "up" %>
+					<%= button_tag "Down", :type => "button", :class => "down" %>
 				</div>
 			</section>
 			<section>
-				<p>Units</p>
+				<p class="single_line">Units</p>
 				<div class="value_field">
 					<%= exercise_form.select(:weight_units, options_for_select(["lbs", "kg"], @exercise['weight_units'])) %>
 				</div>
 			</section>
 		</div>
-		<section>
-			<p>Total weight</p>
-			<div class="value_field">
-				<%= exercise_form.number_field :total_weight, :class => "value" %>
-			</div>
-		</section>
-		<section>
-			<p>Reps</p>
-			<div class="value_field">
-				<%= exercise_form.number_field :reps, :class => "value" %>
-			</div>
-		</section>
-		<%= exercise_form.submit "Save" %>
+		<div id="action_buttons">
+			<%= link_to "Cancel", exercises_path, { :id => "cancel" } %>
+			<%= link_to "Home", exercises_path, { :id => "home" } %>
+			<%= link_to "New", new_exercise_path, { :id => "new" } %>
+			<%= exercise_form.submit "Save" %>
+		</div>
 	<% end %>
-	<%= link_to "Cancel", exercises_path %>
 </div>
