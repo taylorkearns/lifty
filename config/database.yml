@@ -7,6 +7,14 @@ development:
   password: l1fty
   socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: lifty
+  pool: 5
+  username: lifty_user
+  password: l1fty
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -27,8 +35,3 @@ development:
 #   pool: 5
 #   timeout: 5000
 
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
