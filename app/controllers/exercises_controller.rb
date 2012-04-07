@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
 	def index
-		@exercises = Exercise.all
+		@exercises = Exercise.order("name")
 	end
 	
 	def new
@@ -41,7 +41,6 @@ class ExercisesController < ApplicationController
 	def destroy
 		@exercise = Exercise.find(params[:id])
 		@exercise.delete
-		flash[:notice] = "Exercise '#{ @exercise.name }' deleted"
 		redirect_to exercises_path
 	end
 end

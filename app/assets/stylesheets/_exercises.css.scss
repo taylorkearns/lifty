@@ -147,11 +147,77 @@ h1 {
 
 #container.index {
 	h1 {
-		width: 100%;
+		position: relative;
+		width: 90%;
 		height: 62px;
 		line-height: 62px;
 		padding: 0 5%;
 		background: $third_color;
 		font-size: 30px;
 	}
+	
+	#new {
+		@extend .hide_text;
+		display: block;
+		position: absolute;
+		right: 5%;
+		top: 10px;
+		width: 60px;
+		height: 15px;
+		padding-top: 40px;
+		background: image_url("icons.png") -127px -45px no-repeat;
+		opacity: 0.5;
+	}
+	
+	ul {
+		&.exercises {
+			li {
+				width: 90%;
+				height: 45px;
+				margin: 0 5%;
+				line-height: 45px;
+				list-style: none;
+				background: image_url("two-tone-rule-short.png") left bottom repeat-x;
+				font-size: 20px;
+				text-transform: uppercase;
+				
+				a {
+					display: block;
+					padding-left: 32px;
+					background: image_url("icons.png") -150px 13px no-repeat;
+					color: $second_color;
+				}
+			}
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
