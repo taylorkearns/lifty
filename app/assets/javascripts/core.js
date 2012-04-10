@@ -31,7 +31,6 @@ $(document).ready(function(){
 	});
 
 	/* ========== VIEW/EDIT EXERCISE ========== */
-	$('#exercise_name').val(core.capFirst($('#exercise_name').val()));
 	
 	// Plus and minus buttons
 	$('.value_field button').bind('click', function(){
