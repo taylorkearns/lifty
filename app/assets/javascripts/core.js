@@ -25,6 +25,12 @@ var core = (function(){
 /* DOCUMENT.READY
 /* ================================================== */
 $(document).ready(function(){
+	$('a[href!="#"]').bind('click', function(e){
+		e.preventDefault();
+		href = $(this).attr('href');
+		location.href = href;
+	});
+
 	/* ========== VIEW ALL EXERCISES ========== */
 	$.each($('ul.exercises > li > a'), function(i, elem){
 		$(elem).text(core.capFirst($(elem).text()));
