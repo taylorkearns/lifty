@@ -10,4 +10,5 @@ a:active, a:focus { outline: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 input, select { vertical-align: middle; }
 input, text-area, select { -webkit-appearance: none; }
+a, button, input { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 .hide_text { text-indent: 200%; white-space: nowrap; overflow: hidden; }
