@@ -91,6 +91,7 @@ h1 {
 				height: 38px;
 				border: none;
 				background: image_url("icons.png") no-repeat;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
 				
 				&.up {
 					background-position: left top;
