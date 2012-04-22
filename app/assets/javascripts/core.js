@@ -60,4 +60,16 @@ $(document).ready(function(){
 	$('#exercise_total_weight').bind('change', function(){
 		core.clearAllButTotalWeight();
 	});
+	
+	/* ========== NEW EXERCISE ========== */
+	$('#exercise_name').bind('focus', function(){
+		if($(this).val() === '[New Exercise]'){
+			$(this).val('');	
+		}
+	});
+	$('#exercise_name').bind('blur', function(){
+		if($(this).val() === ''){
+			$(this).val('[New Exercise]');	
+		}
+	});
 });
