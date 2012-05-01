@@ -2,12 +2,6 @@
 /* FUNCTIONS
 /* ================================================== */
 var core = (function(){
-	var capitalize = function(str){
-		str = str.toLowerCase();
-		var capitalized_first_letter = str.slice(0, 1).toUpperCase();
-		return str.replace(/^\w/, capitalized_first_letter);
-	};
-
 	return {
 		// Calculate total weight by doubling the weight on each side and adding bar weight
 		calculateTotalWeight: function(){
@@ -25,10 +19,20 @@ var core = (function(){
 /* DOCUMENT.READY
 /* ================================================== */
 $(document).ready(function(){
+	// Use JS to navigate to new pages instead of default link behavior
+	// Used for iOS standalone mode
 	$('a[href!="#"]').bind('click', function(e){
 		e.preventDefault();
 		href = $(this).attr('href');
 		location.href = href;
+	});
+	
+	$('.show_exercise .value_field input, .new_exercise .value_field input').focus(function(){
+		if($(this).val() === '0'){ $(this).val(''); }
+	});
+
+	$('.show_exercise .value_field input, .new_exercise .value_field input').blur(function(){
+		if($(this).val() === ''){ $(this).val('0'); }
 	});
 
 	/* ========== VIEW ALL EXERCISES ========== */
@@ -37,13 +41,13 @@ $(document).ready(function(){
 	});
 
 	/* ========== VIEW/EDIT EXERCISE ========== */
-	
 	// Plus and minus buttons
 	$('.value_field button').bind('click', function(){
 		var button = $(this);
 		var input = button.prevAll('.value');
 		var previous_value = parseInt(input.val());
-		var new_value = button.is('.up') ? previous_value + 1 : previous_value - 1
+		var increment = button.is('.one') ? 1 : 5;
+		var new_value = button.is('.up') ? previous_value + increment : previous_value - increment;
 		input.val(new_value);
 		
 		if(input.is('#exercise_weight_each_side') || input.is('#exercise_bar_weight')){
